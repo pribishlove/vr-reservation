@@ -1,0 +1,25 @@
+FROM node:17-alpine as build
+
+WORKDIR /vr_reservation_tochka/frontend
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+RUN mkdir -p /vr_reservation_tochka/frontend/nginx/certs
+RUN apk update && apk add openssl
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /vr_reservation_tochka/frontend/nginx/certs/private.key -out /vr_reservation_tochka/frontend/nginx/certs/server.crt \
+    -subj "/C=RU/ST=Moscow/L=Moscow/O=Organization/OU=Org/CN=localhost"
+
+FROM nginx:stable-alpine
+
+COPY --from=build /vr_reservation_tochka/frontend/dist /usr/share/nginx/html
+COPY --from=build /vr_reservation_tochka/frontend/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=build /vr_reservation_tochka/frontend/nginx/certs/server.crt /etc/nginx/server.crt
+COPY --from=build /vr_reservation_tochka/frontend/nginx/certs/private.key /etc/nginx/private.key
+
+CMD ["nginx", "-g", "daemon off;"]

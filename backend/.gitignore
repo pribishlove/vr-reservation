@@ -1,0 +1,28 @@
+ Python
+pycache/
+*.pyc
+
+# Virtual environment
+venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# Cached directories
+pycache/
+.cache/
+.pytest_cache/
+
+# Miscellaneous
+.DS_Store
+node_modules/

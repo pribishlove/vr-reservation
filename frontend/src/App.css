@@ -1,0 +1,144 @@
+/* Основные стили для тем */
+.app-container.dark {
+  background-color: #333;
+  color: white;
+}
+
+.app-container.light {
+  background-color: #fff;
+  color: black;
+}
+
+/* Стили для таблицы */
+.table-row-light {
+  background-color: #444; /* Светлый оттенок для полоски */
+}
+
+.table-row-dark {
+  background-color: #222; /* Темный оттенок для полоски */
+  color: white;
+}
+
+.ant-table-thead > tr > th {
+  background-color: inherit; /* Унаследование фона */
+  color: inherit; /* Унаследование цвета */
+  border-right: 1px solid #555; /* Разграничивающие полоски */
+}
+
+.ant-table-tbody > tr > td {
+  background-color: inherit; /* Унаследование фона строки */
+  color: inherit; /* Унаследование цвета */
+  border-right: 1px solid #555; /* Разграничивающие полоски */
+  padding: 4px; /* Уменьшение отступов */
+}
+
+/* Уменьшение расстояния между столбцами */
+.ant-table {
+  table-layout: fixed;
+}
+
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ant-table-small .ant-table-thead > tr > th {
+  padding: 4px;
+}
+
+.ant-table-small .ant-table-tbody > tr > td:last-child,
+.ant-table-small .ant-table-thead > tr > th:last-child {
+  border-right: 0;
+}
+
+/* Дополнительные стили для светлой темы */
+.app-container.light .table-row-light {
+  background-color: #f9f9f9;
+}
+
+.app-container.light .table-row-dark {
+  background-color: #e9e9e9;
+  color: black;
+}
+
+.app-container.light .ant-table-thead > tr > th {
+  border-right: 1px solid #ddd;
+}
+
+.app-container.light .ant-table-tbody > tr > td {
+  border-right: 1px solid #ddd;
+}
+
+/* Исправление контрастности для темной темы */
+.app-container.dark .table-row-light {
+  background-color: #555; /* Более светлый оттенок для светлой полоски в темной теме */
+}
+
+.app-container.dark .table-row-dark {
+  background-color: #333; /* Темный оттенок для темной полоски */
+  color: white;
+}
+
+/* Стили для наведения курсора */
+.ant-table-tbody > tr:hover > td {
+  color: black !important; /* Цвет текста при наведении */
+  background-color: #f0f0f0 !important; /* Светлый фон при наведении */
+}
+
+/* Специфические стили для темной темы */
+.app-container.dark .ant-table-tbody > tr:hover > td {
+  color: black !important; /* Цвет текста при наведении */
+}
+
+.app-container.dark .ant-table-tbody > tr > td {
+  color: white; /* Цвет текста по умолчанию */
+}
+
+/* Стиль для правого верхнего угла */
+.theme-toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Стиль для контейнера кнопок в правом верхнем углу */
+.top-right-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.my-bookings-modal {
+  width: 1200px; /* Увеличьте ширину модального окна */
+}
+
+.my-bookings-table {
+  width: 100%; /* Установите ширину таблицы на 100% */
+}
+
+/* Если таблица слишком высокая, вы можете добавить вертикальный скролл */
+.my-bookings-table .ant-table-body {
+  max-height: 400px; /* Установите максимальную высоту таблицы */
+  overflow-y: auto; /* Включите вертикальный скролл при необходимости */
+}
+
+/* Добавьте эти стили в ваш файл CSS или компонент стилей */
+.ant-modal-content {
+  width: 900px; /* Увеличьте ширину контента модального окна */
+}
+
+.ant-modal-body {
+  padding: 24px 0; /* Увеличьте верхний и нижний отступы содержимого модального окна */
+}
+
+/* Добавьте эти стили в ваш файл CSS или компонент стилей */
+.ant-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

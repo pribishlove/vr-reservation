@@ -1,0 +1,15 @@
+FROM python:3.11-slim
+
+RUN pip install poetry==1.8.2
+
+WORKDIR /vr_reservation_tochka/backend
+
+COPY pyproject.toml poetry.lock ./
+RUN touch README.md
+
+RUN poetry install --no-root
+
+COPY . .
+
+RUN chmod +x /vr_reservation_tochka/backend/run.sh
+CMD ["/vr_reservation_tochka/backend/run.sh"]
